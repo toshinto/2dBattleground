@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace BattleEngine
 {
-    public class Game
+    class Unit:GameObject
     {
+        public double Life;
+        public double MaxLife;
+        
 
     }
-    
 }

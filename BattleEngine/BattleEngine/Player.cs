@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleEngine
 {
-    public class Game
+    class Player
     {
-
     }
-    
 }
