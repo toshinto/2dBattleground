@@ -8,16 +8,23 @@ namespace BattleEngine
 {
     public class Player
     {
-        internal Map Map;
+        const int MaxPlayers = 2;
+
+
+        public Map Map;
+
         public string Name;
         internal Unit mainUnit ;
 
 
-        internal Player(string name,Map m)
+
+        internal Player(string name,Map m,int PlayerID)
         {
-            Name = name;
-            mainUnit = new Unit(m);
             Map = m;
+            Name = name;
+
+            mainUnit = new Unit(m);
+            mainUnit.Position = new Vector(100, 100);
 
         }
 
@@ -30,7 +37,7 @@ namespace BattleEngine
 
         public void FireSpell(int id,Vector pos)
         {
-            
+
         }
     }
 }

@@ -8,6 +8,9 @@ namespace BattleEngine
 {
     class Projectile : GameObject
     {
+        public override ObjectType Type {  get { return ObjectType.Projectile; } }
+
+
         public Unit Owner { get; }
         public Projectile(Map m,Unit o) : base(m)
         {

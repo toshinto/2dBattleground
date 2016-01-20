@@ -8,13 +8,15 @@ namespace BattleEngine
 {
     class Unit:GameObject
     {
-        
+        public override ObjectType Type {  get { return ObjectType.Unit; } }
+
         public double Life;
         public double MaxLife;
         public Unit(Map m) : base(m)
         {
 
         }
+
 
         public void FireProjectile(double Direction)
         {

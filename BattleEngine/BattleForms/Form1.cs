@@ -15,6 +15,11 @@ namespace BattleForms
     {
         Game mainGame;
         Player ourPlayer;
+        bool inGame
+        {
+            get { return mainGame != null;  }
+
+        }
 
         public Form1()
         {
@@ -31,6 +36,12 @@ namespace BattleForms
             var name = textBox1.Text;
             mainGame = new Game(name);
             ourPlayer = mainGame.HostingPlayer;
+
+            gameMap1.OurPlayer = ourPlayer;   
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

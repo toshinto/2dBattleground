@@ -2,13 +2,18 @@
 
 namespace BattleEngine
 {
-    internal class GameObject
+    internal abstract class GameObject : IGameObject
     {
-        public double Direction;
-        public double MoveSpeed;
-        public Map Map { get; private set; }
-        public bool IsMoving;
-        public Vector Position;
+        public Map Map { get; }
+
+        public double Direction { get; set; }
+        public double MoveSpeed { get; set; }
+        public bool IsMoving { get; set; }
+        public Vector Position { get; set; }
+
+        public abstract ObjectType Type { get; }
+
+
         public virtual void Update(int msElapsed)
         {
             if(IsMoving)

@@ -16,7 +16,7 @@ namespace BattleEngine
         public Game(string hostname)
         {
             map = new Map();
-            HostingPlayer = new Player(hostname, map);
+            HostingPlayer = new Player(hostname, map,0);
             Players.Add(HostingPlayer);
         }
         public void Update(int msElapsed)
