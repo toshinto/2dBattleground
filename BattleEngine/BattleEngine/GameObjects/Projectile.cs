@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleEngine
 {
-    class Projectile : GameObject
+    public class Projectile : GameObject
     {
         public override ObjectType Type {  get { return ObjectType.Projectile; } }
 

@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.gameMap1 = new BattleForms.GameMap();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.gameMap1 = new BattleForms.GameMap();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,17 +65,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // gameMap1
-            // 
-            this.gameMap1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gameMap1.BackColor = System.Drawing.Color.White;
-            this.gameMap1.Location = new System.Drawing.Point(199, 12);
-            this.gameMap1.Name = "gameMap1";
-            this.gameMap1.Size = new System.Drawing.Size(589, 418);
-            this.gameMap1.TabIndex = 3;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.button1);
@@ -84,6 +75,23 @@
             this.panel1.Size = new System.Drawing.Size(181, 68);
             this.panel1.TabIndex = 4;
             // 
+            // gameMap1
+            // 
+            this.gameMap1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gameMap1.BackColor = System.Drawing.Color.White;
+            this.gameMap1.Location = new System.Drawing.Point(199, 12);
+            this.gameMap1.Name = "gameMap1";
+            this.gameMap1.OurPlayer = null;
+            this.gameMap1.Size = new System.Drawing.Size(589, 418);
+            this.gameMap1.TabIndex = 3;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 25;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -91,6 +99,7 @@
             this.ClientSize = new System.Drawing.Size(800, 442);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gameMap1);
+            this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "BattleGround";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -107,6 +116,7 @@
         private System.Windows.Forms.Button button1;
         private GameMap gameMap1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

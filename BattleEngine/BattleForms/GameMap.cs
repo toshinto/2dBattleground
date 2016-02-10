@@ -35,33 +35,52 @@ namespace BattleForms
 
         private void onPlayerChanged()
         {
-            var map = OurPlayer.Map.GetTerrain();
+            if (OurPlayer == null) return;
+            // izgrajdame Bitmap s kartata
+            // zashtoto ochakvame che mapa se smenq s pleyara
+            var map = OurPlayer.Map.GetTerrain();  
             var mapSize = OurPlayer.Map.TerrainBounds;
             TerrainImage = new Bitmap((int)mapSize.Width, (int)mapSize.Height);
             for(int x=0;x<mapSize.Width;x++)
             {
                 for(int y=0;y<mapSize.Height;y++)
                 {
+                    var c = Color.Black;
                     var t = map[x, y];
-                    TerrainImage.SetPixel(x, y, Color.White);
+                    switch(t)
+                    {
+                        // izbirame cveta na air i water
+                        case TerrainMap.Air:
+                            c = Color.Green;
+                            break;
+                        case TerrainMap.Water:
+                            c = Color.Blue;
+                            break;
+        
+
+                    }
+                    // na x i y setvame cvqt
+                    TerrainImage.SetPixel(x, y, c);
 
                       
                 }
             }
-
-            timer1.Enabled = (map != null); 
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
+
+            // izchisti background-a 
             var g = e.Graphics;
-            g.Clear(Color.White);
+            g.Clear(Color.Black);
 
             if (OurPlayer == null) return;
+
+            // risuvame terena 
             g.DrawImage(TerrainImage, Point.Empty);
 
+            // risuvame objects
             var objects = OurPlayer.Map.Objects;
-
             foreach(var o in objects)
             {
                 switch(o.Type)
@@ -74,6 +93,15 @@ namespace BattleForms
                         break; 
                 }
             }
+        }
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            if (OurPlayer == null) return;
+
+            int id = 1;
+            if (e.Button == MouseButtons.Left) id = 0;
+            OurPlayer.FireSpell(id, new Vector(e.X, e.Y));
+            base.OnMouseDown(e);
         }
 
         private void drawProjectile(Graphics g,IGameObject o)

@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace BattleEngine
 {
-    class Unit:GameObject
+    public class Unit:GameObject
     {
         public override ObjectType Type {  get { return ObjectType.Unit; } }
+
+
+
+
 
         public double Life;
         public double MaxLife;
