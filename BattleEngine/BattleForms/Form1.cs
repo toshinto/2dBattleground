@@ -107,6 +107,11 @@ namespace BattleForms
         {
             mainGame.Update(timer1.Interval);
             gameMap1.Invalidate();
+
+            Keyboard.Update();
+
+            if (Keyboard.GetKeyState(Keys.F))
+                Console.WriteLine("F");
         }
     }
 }
