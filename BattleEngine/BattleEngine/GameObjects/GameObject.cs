@@ -5,6 +5,12 @@ namespace BattleEngine
 {
     public class GameObject : IGameObject
     {
+        /// <summary>
+        /// gets the distance moved since last frame
+        /// </summary>
+        protected double DistanceMoved { get; private  set;}
+        
+
         public Map Map { get; }
 
         public double Direction { get; set; }
@@ -38,12 +44,14 @@ namespace BattleEngine
 
         public virtual void Update(int msElapsed)
         {
-            if(IsMoving)
+            if (IsMoving)
             {
-                var d = (MoveSpeed * msElapsed) / 1000;
-                var p = Position.PolarProjection(Direction, d);
-                Position = p;
+                DistanceMoved = (MoveSpeed * msElapsed) / 1000;
+                var newPosition = Position.PolarProjection(Direction, DistanceMoved);
+                Position = newPosition;
             }
+            else
+                DistanceMoved = 0;
             
         }
         public GameObject(Map m)

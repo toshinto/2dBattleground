@@ -99,7 +99,8 @@ namespace BattleForms
             if (OurPlayer == null) return;
 
             int id = 1;
-            if (e.Button == MouseButtons.Left) id = 0;
+            if (e.Button == MouseButtons.Left)
+                id = 0;
             OurPlayer.FireSpell(id, new Vector(e.X, e.Y));
             base.OnMouseDown(e);
         }
@@ -115,7 +116,7 @@ namespace BattleForms
 
         private void drawUnit(Graphics g, IGameObject o)
         {
-            const double circleRadius = 5;
+            const double circleRadius = 6;
             var br = Brushes.Blue;
             var circlePos = o.Position - circleRadius;
 

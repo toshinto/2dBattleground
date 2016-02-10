@@ -100,7 +100,7 @@ namespace BattleForms
             var isMoving = speed.X != 0 || speed.Y != 0;
             var angle = new Vector(speed.X, speed.Y).Angle;
 
-            ourPlayer.UpdateMovement(isMoving, angle);
+            ourPlayer.SetMovement(isMoving, angle);
         }
 
         private void timer1_Tick(object sender, EventArgs e)

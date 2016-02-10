@@ -8,6 +8,8 @@ namespace BattleEngine
 {
     public class Projectile : GameObject
     {
+        double DistanceTravelled = 0;
+        public double MaxDistance = 100;
         public override ObjectType Type {  get { return ObjectType.Projectile; } }
 
 
@@ -19,10 +21,21 @@ namespace BattleEngine
         }
         public override void Update(int msElapsed)
         {
+
             base.Update(msElapsed);
+            //Update Distance travelled
+            DistanceTravelled += DistanceMoved;
+            if(DistanceTravelled > MaxDistance)
+            {
+
+                    Map.RemoveObject(this);
+            }
+
             // Check for targets
             var u = Map.objects
+                
                 .OfType<Unit>()
+                .Where(o => o != this.Owner)
                 .Where(o => o.Position.DistanceTo(this.Position) < 1)
                 .FirstOrDefault();
             if (u != null)

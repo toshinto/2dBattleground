@@ -34,6 +34,8 @@ namespace BattleEngine
         {
             map.Update(msElapsed);
 
+            foreach (var p in Players)
+                p.Update(msElapsed);
         }
     }
     

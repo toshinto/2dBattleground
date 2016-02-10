@@ -10,7 +10,7 @@ namespace BattleEngine
     {
         private TerrainMap[,] terrain { get; }
         
-        internal  HashSet<GameObject> objects { get; } = new HashSet<GameObject>();
+        internal HashSet<GameObject> objects { get; } = new HashSet<GameObject>();
 
         public RectangleF TerrainBounds { get; }
 
@@ -43,7 +43,7 @@ namespace BattleEngine
 
         internal void Update(int msElapsed)
         {
-            foreach (var o in objects)
+            foreach (var o in objects.ToList())
             {
                 o.Update(msElapsed);
                 if(!TerrainBounds.Contains(o.Position))
