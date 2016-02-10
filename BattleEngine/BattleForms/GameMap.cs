@@ -40,6 +40,7 @@ namespace BattleForms
             // zashtoto ochakvame che mapa se smenq s pleyara
             var map = OurPlayer.Map.GetTerrain();  
             var mapSize = OurPlayer.Map.TerrainBounds;
+
             TerrainImage = new Bitmap((int)mapSize.Width, (int)mapSize.Height);
             for(int x=0;x<mapSize.Width;x++)
             {
@@ -69,7 +70,6 @@ namespace BattleForms
 
         protected override void OnPaint(PaintEventArgs e)
         {
-
             // izchisti background-a 
             var g = e.Graphics;
             g.Clear(Color.Black);

@@ -14,7 +14,7 @@ namespace BattleEngine
         public Map Map;
 
         public string Name;
-        internal Unit mainUnit ;
+        internal Unit mainUnit;
 
 
 
@@ -28,14 +28,13 @@ namespace BattleEngine
 
         }
 
-
-        public void UpdateMovement(bool isMoving,double angle)
+        public void UpdateMovement(bool isMoving, double angle)
         {
             mainUnit.IsMoving = isMoving;
             mainUnit.Direction = angle;
         }
 
-        public void FireSpell(int id,Vector pos)
+        public void FireSpell(int id, Vector pos)
         {
 
         }

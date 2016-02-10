@@ -15,10 +15,11 @@ namespace BattleForms
     {
         Game mainGame;
         Player ourPlayer;
+
+
         bool inGame
         {
             get { return mainGame != null;  }
-
         }
 
         public Form1()
