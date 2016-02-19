@@ -49,49 +49,7 @@ namespace BattleForms
         }
 
         Point speed = new Point(0,0);
-
-
-        protected override void OnKeyDown(KeyEventArgs e)
-        {
-
-            Console.WriteLine(e.KeyCode.ToString());
-            switch (e.KeyCode)
-            {
-                case Keys.W: speed.Y -= 1;
-                    break;
-                case Keys.D: speed.X += 1;
-                    break;
-                case Keys.A: speed.X -= 1;
-                    break;
-                case Keys.S: speed.Y += 1;
-                    break;
-                default: return;
-            }
-            UpdatePlayerMove();
-
-
-        }
-        protected override void OnKeyUp(KeyEventArgs e)
-        {
-
-            switch (e.KeyCode)
-            {
-                case Keys.W:
-                    speed.Y += 1;
-                    break;
-                case Keys.D:
-                    speed.X -= 1;
-                    break;
-                case Keys.A:
-                    speed.X += 1;
-                    break;
-                case Keys.S:
-                    speed.Y -= 1;
-                    break;
-                default: return;
-            }
-            UpdatePlayerMove();
-        }
+      
 
         void UpdatePlayerMove()
         {
@@ -110,8 +68,16 @@ namespace BattleForms
 
             Keyboard.Update();
 
-            if (Keyboard.GetKeyState(Keys.F))
-                Console.WriteLine("F");
+            var x = 0;
+            var y = 0;
+            if (Keyboard.GetKeyState(Keys.D)) x++;
+            if (Keyboard.GetKeyState(Keys.A)) x--;
+            if (Keyboard.GetKeyState(Keys.W)) y--;
+            if (Keyboard.GetKeyState(Keys.S)) y++;
+            speed   = new Point(x, y);
+
+            UpdatePlayerMove();
+
         }
     }
 }
